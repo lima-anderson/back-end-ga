@@ -30,7 +30,8 @@ class App {
 
     private database (): void {
         mongoose.connect("mongodb+srv://usuarioNode:R6rQ8o55Zdz5ING5@cluster0.zuaav.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { 
-            useNewUrlParser: true 
+            useNewUrlParser: true,
+            useUnifiedTopology: true
         })
     }
 

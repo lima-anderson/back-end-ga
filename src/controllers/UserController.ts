@@ -4,12 +4,15 @@ import User from '../schemas/User'
 
 class UserController {
     public async index (req: Request, res: Response): Promise<Response> {
-      try {
+
         const users = await User.find()
         return res.json(users)
-      } catch (error) {
-          console.log(error.message)
-      }
+    //   try {
+    //     const users = await User.find()
+    //     return res.json(users)
+    //   } catch (error) {
+    //       console.log(error.message)
+    //   }
     }
 
     public async store (req: Request, res: Response): Promise<Response> {
@@ -27,7 +30,8 @@ class UserController {
             return res.status(201).json(user)    
 
         } catch (error) {
-            return res.status(400).json({error: error.message})
+            console.log('caiu aqui')
+            return res.status(400).json({error})
         }
     }
 

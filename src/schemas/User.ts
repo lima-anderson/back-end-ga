@@ -14,8 +14,7 @@ interface UserInterface extends Document{
     estadoCivil?: string
     sexo?: string
     cidade?: string
-    telefone1?: string
-    telefone2?: string
+    phone?: string
     contato?: string
     identidade?: string
     possuiVeiculo?: string
@@ -35,12 +34,11 @@ const UserSchema = new Schema({
     estadoCivil: { type: String, unique: false, required: false }, 
     sexo: { type: String, unique: false, required: false }, 
     cidade: { type: String, unique: false, required: false }, 
-    telefone1: { type: String, unique: false, required: false }, 
-    telefone2: { type: String, unique: false, required: false }, 
+    phone: { type: String, unique: false, required: false }, 
     contato: { type: String, unique: false, required: false }, 
-    identidade: { type: String, unique: true, required: false }, 
+    rg: { type: String, unique: true, required: false }, 
     possuiVeiculo: { type: String, unique: false, required: false }, 
-    categoriaCNH: { type: String, unique: false, required: false }
+    possuiCNH: { type: String, unique: false, required: false }
 }, {
     timestamps: true
 })
