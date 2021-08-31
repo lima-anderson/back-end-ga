@@ -2,16 +2,17 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import routes from './routes'
-
+import swaggerUI from  'swagger-ui-express'
+import swaggerDocs from './swagger.json'
 
 
 class App {
     public express: express.Application;
 
-    // private corsOptions = {
-    //     origin: 'http://localhost:3000/',
-    //     optionsSuccessStatus: 200 
-    //   }
+    private corsOptions = {
+        origin: 'https://front-end-ga.vercel.app/',
+        optionsSuccessStatus: 200 
+      }
 
     public constructor(){
         this.express = express()
@@ -24,8 +25,8 @@ class App {
 
     private middelwares(): void {
         this.express.use(express.json())
-        // this.express.use(cors(this.corsOptions))
-        this.express.use(cors())
+        this.express.use(cors(this.corsOptions))
+        this.express.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
     }
 
     private database (): void {

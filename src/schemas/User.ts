@@ -18,7 +18,7 @@ interface UserInterface extends Document{
     contato?: string
     identidade?: string
     possuiVeiculo?: string
-    categoriaCNH?: string
+    possuiCNH?: string
 }
 
 const UserSchema = new Schema({

@@ -5,14 +5,14 @@ import User from '../schemas/User'
 class UserController {
     public async index (req: Request, res: Response): Promise<Response> {
 
+        // const users = await User.find()
+        // return res.json(users)
+      try {
         const users = await User.find()
         return res.json(users)
-    //   try {
-    //     const users = await User.find()
-    //     return res.json(users)
-    //   } catch (error) {
-    //       console.log(error.message)
-    //   }
+      } catch (error) {
+          console.log(error.message)
+      }
     }
 
     public async store (req: Request, res: Response): Promise<Response> {
