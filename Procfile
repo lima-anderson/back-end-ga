@@ -1,1 +1,1 @@
-worker: node src/server.ts
+web: node ./build/server.js & node ./build/queue.js
