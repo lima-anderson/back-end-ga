@@ -1,27 +1,6 @@
-import { Schema, model, Document } from 'mongoose';
+const mongoose = require('../database');
 
-interface UserInterface extends Document{
-
-    nome: string
-    cpf: string
-    cargoPretendido?: string
-    dataNasc: string
-    logradouro: string
-    bairro: string
-    cep: string
-    email: string
-    celular: string
-    estadoCivil?: string
-    sexo?: string
-    cidade?: string
-    phone?: string
-    contato?: string
-    identidade?: string
-    possuiVeiculo?: string
-    possuiCNH?: string
-}
-
-const UserSchema = new Schema({
+const CandidatoSchema = new mongoose.Schema({
     nome: { type: String, unique: false, required: true }, 
     cpf: { type: String, unique: true, required: true }, 
     cargoPretendido: { type: String, unique: false, required: false }, 
@@ -35,12 +14,11 @@ const UserSchema = new Schema({
     sexo: { type: String, unique: false, required: false }, 
     cidade: { type: String, unique: false, required: false }, 
     phone: { type: String, unique: false, required: false }, 
-    contato: { type: String, unique: false, required: false }, 
     rg: { type: String, unique: true, required: false }, 
     possuiVeiculo: { type: String, unique: false, required: false }, 
     possuiCNH: { type: String, unique: false, required: false }
 }, {
     timestamps: true
-})
+});
 
-export default model<UserInterface>('User', UserSchema)
+module.exports = mongoose.model('Candidato', CandidatoSchema);
